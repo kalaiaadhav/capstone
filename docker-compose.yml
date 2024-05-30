@@ -4,7 +4,7 @@ services:
   my-nginx:
     build: .
     ports:
-      - "80:80"
+      - "3000:3000"
     volumes:
       - ./nginx-content:/var/opt/nginx
 
