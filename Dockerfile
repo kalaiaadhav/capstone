@@ -1,7 +1,8 @@
-FROM nginx:alpine
+FROM httpd:2.4
 
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy your HTML files or website content to the document root
+COPY index.html /var/www/html/index.html
 
-VOLUME /var/opt/nginx
+EXPOSE 3000
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["httpd", "-D", "FOREGROUND"]
