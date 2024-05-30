@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  my-nginx:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx-content:/var/opt/nginx
+
+volumes:
+  nginx-content:
