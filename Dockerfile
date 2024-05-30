@@ -1,8 +1,11 @@
-FROM httpd:2.4
+FROM nginx:alpine
 
-# Copy your HTML files or website content to the document root
-COPY index.html /var/www/html/index.html
+# Copy your index.html file (or website content) to the default web directory
+COPY index.html /usr/share/nginx/html/index.html
+
+# Optional: Copy a custom Nginx configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 3000
 
-CMD ["httpd", "-D", "FOREGROUND"]
+CMD ["nginx", "-g", "daemon off;"]
